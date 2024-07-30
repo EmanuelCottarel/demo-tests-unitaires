@@ -34,12 +34,10 @@ public enum Saison {
 	 */
 	public static Saison valueOfLibelle(String libelle) {
 		Saison[] saisons = Saison.values();
+		if (libelle == null) return null;
 		for (Saison saison : saisons) {
-			if (libelle.equals(saison.getLibelle())) {
+			if (libelle.equalsIgnoreCase(saison.getLibelle())) {
 				return saison;
-			}
-			else {
-				return null;
 			}
 		}
 		return null;
