@@ -37,6 +37,12 @@ public class MaisonTest {
     }
 
     @Test
+    public void testAjouterPieceNull() {
+        expectedException.expect(IllegalArgumentException.class);
+        maison.ajouterPiece(null);
+    }
+
+    @Test
     public void testNbPieces() {
         Assert.assertEquals(0, maison.nbPieces());
         maison.ajouterPiece(salon);
@@ -70,6 +76,12 @@ public class MaisonTest {
         expectedException.expect(IllegalArgumentException.class);
         maison.superficieTypePiece(null);
 
+    }
+
+    @Test
+    public void testSuperficieTypePieceNull() {
+        expectedException.expect(IllegalArgumentException.class);
+        maison.superficieTypePiece(null);
     }
 
     @Test

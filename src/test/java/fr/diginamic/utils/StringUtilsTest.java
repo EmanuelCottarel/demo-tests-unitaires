@@ -12,7 +12,7 @@ public class StringUtilsTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void testLevenshteinDistance(){
+    public void testLevenshteinDistanceNominale(){
         // Nominal
         assertEquals(1, StringUtils.levenshteinDistance("chat", "chats"));
         assertEquals(1, StringUtils.levenshteinDistance("machins", "machine"));
@@ -20,11 +20,21 @@ public class StringUtilsTest {
         assertEquals(2, StringUtils.levenshteinDistance("distance", "instance"));
         assertEquals(2, StringUtils.levenshteinDistance("Chien", "Chine"));
 
-        // Robustesse
+    }
+
+    @Test
+    public void testLevenshteinDistanceNominaleVide(){
+        assertEquals(0, StringUtils.levenshteinDistance("", ""));
+        assertEquals(5, StringUtils.levenshteinDistance("Chien", ""));
+    }
+
+    @Test
+    public void testLevenshteinDistanceCaseInsensitive(){
         assertEquals(2, StringUtils.levenshteinDistance("ChiEN", "Chine"));
-//        assertEquals(2, StringUtils.levenshteinDistance(null, "Chine"));
+    }
 
-
+    @Test
+    public void testLevenshteinDistanceNull(){
         expectedException.expect(IllegalArgumentException.class);
         StringUtils.levenshteinDistance(null, "Chine");
         expectedException.expect(IllegalArgumentException.class);

@@ -12,8 +12,10 @@ public class SaisonTest {
         assertEquals(Saison.ETE, Saison.valueOfLibelle("Eté"));
         assertEquals(Saison.AUTOMNE, Saison.valueOfLibelle("Automne"));
         assertEquals(Saison.HIVER, Saison.valueOfLibelle("Hiver"));
+    }
 
-        //Robustesse
+    @Test
+    public void testValueOfLibelleInexistant(){
         assertEquals(Saison.PRINTEMPS, Saison.valueOfLibelle("PrintempS"));
         assertEquals(null, Saison.valueOfLibelle(null));
         assertNull(Saison.valueOfLibelle("null"));
